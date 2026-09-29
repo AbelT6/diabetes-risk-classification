@@ -2,6 +2,14 @@
 
 Predicting diabetes/prediabetes risk from CDC BRFSS 2015 health survey data, with an emphasis on data validation and honest handling of class imbalance.
 
+## Key findings
+
+- **Validation:** 24,206 exact duplicate rows removed (253,680 → 229,474) so identical rows can't land in both train and test.
+- **Logistic regression with class weighting catches 76% of diabetic cases** (recall 0.76, ROC-AUC 0.812). Random forest's higher accuracy (0.81 vs 0.72) hides a recall of 0.44: it misses more than half of diabetic cases.
+- **Lowering the random forest threshold from 0.5 to 0.3 lifts recall to 0.73**, at the cost of accuracy dropping to 0.70.
+
+![Confusion matrices on the 45,895-row test set: logistic regression vs random forest at the default 0.5 threshold](outputs/confusion_matrices.png)
+
 ## Problem
 
 Using self-reported health indicators (BMI, blood pressure, general health, physical activity, etc.), predict whether a person has diabetes or prediabetes. Framed as a binary classification problem relevant to health risk stratification — the kind of task a health insurer might use to flag members for preventive outreach.
