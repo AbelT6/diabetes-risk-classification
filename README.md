@@ -98,10 +98,15 @@ Both methods agree GenHlth, Age, and BMI/BMI_category are the strongest signals.
 
 ## Setup
 
+Needs Python 3.12 or newer (some pinned versions in `requirements.txt` don't install on 3.11). Run everything from the repo root.
+
 ```bash
 python3 -m venv venv
-source venv/bin/activate
+source venv/bin/activate          # Windows: venv\Scripts\activate
 pip install -r requirements.txt
-python 01_load_data.py   # downloads the dataset to data/
+mkdir data                        # data/ is gitignored, and the loader won't create it
+python 01_load_data.py            # downloads the dataset to data/diabetes_raw.csv
 jupyter notebook oscar_diabetes_risk.ipynb
 ```
+
+The notebook reads `data/diabetes_raw.csv` and saves its charts to `outputs/`.
