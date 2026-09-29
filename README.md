@@ -106,7 +106,7 @@ source venv/bin/activate          # Windows: venv\Scripts\activate
 pip install -r requirements.txt
 mkdir data                        # data/ is gitignored, and the loader won't create it
 python 01_load_data.py            # downloads the dataset to data/diabetes_raw.csv
-jupyter notebook oscar_diabetes_risk.ipynb
+jupyter notebook diabetes_risk_classification.ipynb
 ```
 
 The notebook reads `data/diabetes_raw.csv` and saves its charts to `outputs/`.
